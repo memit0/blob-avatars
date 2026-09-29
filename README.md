@@ -42,10 +42,13 @@ export async function GET(_req, { params }) {
 | ------------ | ----------- | --------------------------------------------- |
 | `size`       | `128`       | Width/height in px                            |
 | `colors`     | 8 brights   | Palette the blob color is picked from         |
-| `background` | `'#111111'` | Background color, also used for eyes/mouth    |
+| `background` | `'#111111'` | Background color, or `'none'` / `'transparent'` for just the blob |
+| `face`       | background  | Eyes/mouth color (`'#111111'` when there's no background) |
 
 ```js
 blobAvatar('ada', { size: 64, background: '#ffffff', colors: ['#111', '#555'] });
+blobAvatar('ada', { background: 'none' });                  // just the blob, no square
+blobAvatar('ada', { background: 'none', face: '#ffffff' }); // …with a white face
 ```
 
 ## Development

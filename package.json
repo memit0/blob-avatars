@@ -1,6 +1,6 @@
 {
   "name": "blob-avatars",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Deterministic, dependency-free SVG blob avatars from any seed (user id, email...).",
   "type": "module",
   "exports": {

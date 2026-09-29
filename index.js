@@ -15,7 +15,8 @@ function rng(seed) {
 const f = (n) => +n.toFixed(1);
 const pt = ([x, y]) => `${f(x)} ${f(y)}`;
 
-export function blobAvatar(seed, { size = 128, colors = PALETTE, background = '#111111' } = {}) {
+export function blobAvatar(seed, { size = 128, colors = PALETTE, background = '#111111', face } = {}) {
+  const bare = background === 'none' || background === 'transparent';
   const r = rng(seed);
   const color = colors[Math.floor(r() * colors.length)];
 
@@ -41,7 +42,8 @@ export function blobAvatar(seed, { size = 128, colors = PALETTE, background = '#
   const lx = (r() - 0.5) * 16, ly = (r() - 0.5) * 12;
   const gap = 6 + r() * 4, tilt = (r() - 0.5) * 30;
   const cx = 50 + lx, ey = 45 + ly, my = ey + 11;
-  const ink = background;
+  // Face defaults to the background color (a cut-out look), or near-black when there's no background.
+  const ink = face ?? (bare ? '#111111' : background);
   const line = (d) => `<path d="${d}" fill="none" stroke="${ink}" stroke-width="2" stroke-linecap="round"/>`;
 
   const eyes = [
@@ -61,7 +63,7 @@ export function blobAvatar(seed, { size = 128, colors = PALETTE, background = '#
   const mouth = mouths[Math.floor(r() * mouths.length)];
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="${size}" height="${size}">` +
-    `<rect width="100" height="100" fill="${background}"/>` +
+    (bare ? '' : `<rect width="100" height="100" fill="${background}"/>`) +
     `<path d="${d}" fill="${color}"/>` +
     eye(cx - gap) + eye(cx + gap) + mouth() + `</svg>`;
 }
