@@ -1,0 +1,28 @@
+{
+  "name": "blob-avatars",
+  "version": "0.1.0",
+  "description": "Deterministic, dependency-free SVG blob avatars from any seed (user id, email...).",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "test": "node test.js"
+  },
+  "license": "MIT",
+  "keywords": [
+    "avatar",
+    "svg",
+    "blob",
+    "identicon",
+    "profile-picture",
+    "generative"
+  ]
+}
