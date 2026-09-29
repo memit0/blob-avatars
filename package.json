@@ -24,5 +24,7 @@
     "identicon",
     "profile-picture",
     "generative"
-  ]
+  ],
+  "repository": "github:memit0/blob-avatars",
+  "homepage": "https://github.com/memit0/blob-avatars#readme"
 }
