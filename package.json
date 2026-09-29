@@ -25,6 +25,9 @@
     "profile-picture",
     "generative"
   ],
-  "repository": "github:memit0/blob-avatars",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/memit0/blob-avatars.git"
+  },
   "homepage": "https://github.com/memit0/blob-avatars#readme"
 }
